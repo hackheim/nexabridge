@@ -11,3 +11,6 @@ apt update
 sudo apt-get install telldus-core libtelldus-core-dev
 
 pip install tellcore-py
+
+sudo systemctl enable /home/pi/nexabridge/nexabridge.service
+sudo service nexabridge start
