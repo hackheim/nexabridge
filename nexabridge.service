@@ -1,0 +1,13 @@
+[Unit]
+Description=NEXA bridge systemd service
+Before=systemd-user-sessions.service
+
+[Service]
+TimeoutStartSec=0
+WorkingDirectory=/home/pi/nexabridge
+ExecStart=/usr/bin/python run.py
+User=pi
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
