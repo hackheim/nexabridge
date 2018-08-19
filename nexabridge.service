@@ -1,5 +1,7 @@
 [Unit]
 Description=NEXA bridge systemd service
+Wants=network-online.target
+After=network-online.target
 Before=systemd-user-sessions.service
 
 [Service]
