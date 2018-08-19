@@ -1,0 +1,6 @@
+{
+	"username":"change_me", 
+	"password":"change_me",
+	"hostname": "mqtt.hackheim",
+	"prefix": "hackheim/nexa"
+} 
