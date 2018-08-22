@@ -6,9 +6,9 @@ Before=systemd-user-sessions.service
 
 [Service]
 TimeoutStartSec=0
-WorkingDirectory=/home/pi/nexabridge
+WorkingDirectory=/home/bridge/nexabridge
 ExecStart=/usr/bin/python run.py
-User=pi
+User=bridge
 RemainAfterExit=yes
 
 [Install]
