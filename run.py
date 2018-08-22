@@ -11,7 +11,8 @@ def raw_event(data, controller_id, cid):
     string = "[RAW] {0} <- {1}".format(controller_id, data)
     values = dict(s.split(':') for s in data.split(';')[:-1])
     auth = {'username':settings["username"], 'password':settings["password"]} 
-    publish.single(settings["prefix"]+"/"+values['house']+"/"+values['unit'], values['method'], hostname=settings["hostname"], auth = auth)
+    publish.single(settings["prefix"]+"/receiveaddress/"+values['house']+"/"+values['unit'], values['method'], hostname=settings["hostname"], auth = auth)
+    publish.single(settings["prefix"]+"/receiveall/", json.dumps(values), hostname=settings["hostname"], auth = auth)
 
 
 try:
@@ -23,10 +24,7 @@ except ImportError:
     dispatcher = td.QueuedCallbackDispatcher()
 
 core = td.TelldusCore(callback_dispatcher=dispatcher)
-callbacks = []
-
-callbacks.append(core.register_raw_device_event(raw_event))
-
+core.register_raw_device_event(raw_event)
 
 try:
     if loop:
